@@ -1,10 +1,8 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
-import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
-import styles from "./index.module.css";
+
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -42,6 +40,11 @@ export default function Home() {
                 <li>
                   <Link href="/pet">
                     <a>Pet name generator. As amazing as it sounds.</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/image">
+                    <a>Pet image generator. As stupendus as it can get.</a>
                   </Link>
                 </li>
               </ul>
