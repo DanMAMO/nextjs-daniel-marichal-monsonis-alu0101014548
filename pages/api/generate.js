@@ -12,7 +12,7 @@ export default async function (req, res) {
     const prompt = createAnimalPrompt(animal);
 
     const completion = await openai.createCompletion({
-      model: "text-davinci-003",
+      model: "gpt-3.5-turbo",
       prompt: prompt,
       max_tokens: 50,
       temperature: 0.5,
@@ -22,12 +22,12 @@ export default async function (req, res) {
     res.status(200).json({ petNames: names });
   } catch (error) {
     console.error('Error: ', error);
-    res.status(500).json({ message: 'Error processing your request' });
+    res.status(500).json({ message: 'Error processing your request, try again you bafoon' });
   }
 }
 
 function createAnimalPrompt(animal) {
   const animalFormatted = animal.charAt(0).toUpperCase() + animal.slice(1).toLowerCase();
-  return `Invent unique and clever names for a ${animalFormatted} that is also a superhero. Provide a list of three names.`;
+  return `Invent unique and clever names for a ${animalFormatted} that is also a superhero. Provide a list of three names. Make one of them always "PiPo" and invent a crazy excuse as why.`;
 }
 
