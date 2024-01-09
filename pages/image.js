@@ -4,12 +4,12 @@ import styles from "./index.module.css";
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   async function onSubmit(event) {
     event.preventDefault();
     if (!animalInput.trim()) {
-      setResult("¡Vamos! Ni siquiera un animal imaginario?");
+      setImageURL("");
       return;
     }
     const response = await fetch("/api/generate", {
@@ -18,31 +18,30 @@ export default function Home() {
       body: JSON.stringify({ animal: animalInput }),
     });
     const data = await response.json();
-    setResult(data.result || "Hmm, parece que hoy no estoy muy creativo.");
+    setImageURL(data.imageURL || "");
     setAnimalInput("");
   }
 
   return (
     <div>
       <Head>
-        <title>DMSI LAB: ¿Otra vez aquí?</title>
+        <title>DMSI LAB: Generador de Imágenes de Animales</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1>¡Bienvenido al menos original generador de nombres para mascotas!</h1>
-        <p>Sé que estás emocionado. Contén tu entusiasmo, por favor.</p>
+        <h1>Generador de Imágenes de Animales</h1>
         <form onSubmit={onSubmit} className={styles.form}>
           <input
             type="text"
             name="animal"
-            placeholder="Escribe un animal... si puedes"
+            placeholder="Escribe un animal"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <button type="submit">Genérame un nombre... Debería considerar ponerle Pipo al perro como nombre.</button>
+          <button type="submit">Generar Imagen</button>
         </form>
-        {result && <div className={styles.result}>¿En serio? {result}</div>}
+        {imageURL && <img src={imageURL} className={styles.animalImage} alt="Animal Image" />}
       </main>
     </div>
   );
