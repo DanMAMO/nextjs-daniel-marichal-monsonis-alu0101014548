@@ -77,10 +77,14 @@ For any queries or contributions, feel free to open an issue or a pull request i
 ## Deployment on Netlify
 
   - The project is deployed using Netlify's UI. 
+    ![Netlify](netlify.png)
 
 ## Deployment on Vercel
 
   - The deployment is also carried out on the Vercel development and deployment platform
+
+  ![Vercel](versel.png)
+  
 ## Dynamic Routes Exercise
 
 - The exercise involves creating a blog with various posts using dynamic routing mechanisms.
@@ -115,4 +119,5 @@ For any queries or contributions, feel free to open an issue or a pull request i
 
 #### Help from colleagues was asked for solving this las task.
 ---
-and images could not be realized in this iteration of the project.
+
+***Note on Pet Name and Image Generation Features:** Due to quota limitations with the OpenAI API, the features to generate pet names and images could not be realized in this iteration of the project.
